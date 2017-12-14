@@ -1,0 +1,51 @@
+---
+layout: post
+title: Network to Network Compression using Policy Gradient Reinforcement Learning 
+tags:
+- Compression 
+- Post
+---
+
+
+# Motivation
+To be able to develop smart perception systems, we would like to leverage the power of Deep Neural Networks. However, in order to acheive this, we need to account for two critical factors. 1. Performance 2. Speed and 3. Size. Deploying an unreliable model with bad performance might result in orders of magnitude greater harm than good in the real world. Thus, it is imperative that we have models that are robust to varying conditions. Speed is critical since we want to be able to make decisions in real-time - possibly faster than human perception, if we want to prevent accidents. Size is important since the network would be running on an on-board embedded system. While the current Deep Learning community has achieved state of the art results on large datasets with high compute GPU clusters, deploying a high performance model in the real world comes with additional challenges. Table 1 shows the magnitude of time/speed gained by using a smaller network in a practical setting.
+
+|             | CPU Train | CPU Test | TitanX Train | TitanX Test | Memory  |
+|-------------|-----------|----------|--------------|-------------|---------|
+| ResNet-200  | 22.4 s    | 8.6 s    | 300 ms       | 104 ms      | 5052 MB |
+| ResNet-18   | 2.2 s     | 0.8 s    | 31 ms        | 10 ms       | 612 MB  |
+| Improvement | 10x       | 10x      | 10x          | 10x         | 8x      |
+Table 1
+
+# Overview
+In this project, we propose a Model Compression technique that aims to address the above problems. Model Compression algorithms take as input a large model which performs well on some task and generate a smaller model with comparable performance. This is beneficial to our problem since a simpler  model overfits less to the training data and produces more robust performance in varying conditions (Parsimony, Occam's razor). Additionally, a smaller neural network is also faster during test time since the forward pass has to perform less convolution operations. Lastly, the reduced size of the network allows us to actually deploy the model in practice.
+
+The Model Compression method we propose, builds on an existing technique, Knowledge Distillation by Hinton et. al 2015. Knowledge Distillation is a Model Compression technique that trains a smaller neural network (student) to mimic the outputs of the larger network (teacher). This results in a compressed model that has comparable performance to the teacher model. Classically, the student model is defined by hand, borrowing motifs from previous hand-designed networks. Our approach innovates on this by introducing a novel architecture search technique that selects an optimal student model using reinforcement learning. We briefly describe the method and results below. We also compare our method to existing compression techniques and show a substantial improvement. Future directions are also discussed. A more detailed discussion of the work and code can be found at TODO:.
+
+<div class="divider"></div>
+
+# Approach
+TODO: Insert image of pipeline
+At a high level, we train two policies to compress the network in two stages. First, we train a layer removal policy which removes layers from the teacher model. Second, we train a layer shrinkage policy to shrink each layer by reducing the number of parameters in each layer of the best model from the first stage. The result of this two stage is a compressed student model that can be trained using Knowledge Distillation. 
+
+## Reward
+We introduce the concept of a constrained reward. If we know the hardware or software constraints prior to using the algorithm, we can use them to ensure that the algorithm produces models that respect those constraints. 
+## 
+
+<div class="divider"></div>
+
+# Results
+## Compression experiments
+## Baselines
+
+<div class="divider"></div>
+
+# Other experiments
+
+<div class="divider"></div>
+
+# Future directions
+<div class="divider"></div>
+
+# References 
+
