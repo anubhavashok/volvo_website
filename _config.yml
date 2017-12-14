@@ -13,10 +13,13 @@ safe: true
 # edit here to achieve your personal greatness
 url: http://anubhavashok.github.io/
 baseurl: /volvo_website/
-title: Chris Turner
-author: Chris Turner
-description: Personal blog and resume
-avatar: profile.png
+title: Volvo-MSCV Capstone 2017
+author: Anubhav Ashok & Yifan Xing 
+description: Website report for Volvo-MSCV Capstone
+avatar1: volvo_construction_logo.png
+avatar2: cmu_logo.png
+model_compression_image: n2n_pipeline.png
+tracking_image: tracking.png
 #email: yourname@email.com
 #github: myjekyll/sustain # username
 #twitter: username

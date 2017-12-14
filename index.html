@@ -5,13 +5,22 @@ layout: home
 <section id="about">
 	<div class="container">
 	  <div class="avatar">
-		<img class="img-circle" src="{{ site.baseurl }}static/img/{{ site.avatar }}" alt="Responsive image">
+		<img src="{{ site.baseurl }}static/img/{{ site.avatar1 }}" width=120 style='padding-right: 20px;'alt="Responsive image">
+		<img src="{{ site.baseurl }}static/img/{{ site.avatar2 }}" width=100 alt="Responsive image">
 	  </div>
-	  <h3>I'm <strong>{{ site.author }}</strong>, a Software Engineer.</h3>
-	  <h3>I love all things computer science and maths.</h3>
-	  <h3>Have a look at some of my working <a href="{{ site.baseurl }}projects.html"> projects</a>.</h3>
-	  <h3>For more check out my academic &amp; professional <a href="http://myjekyll.github.io/vitae">Resume</a>.</h3>
-	  <h3>Contact me at <a href="http://twitter.com/{{ site.twitter }}">@{{ site.twitter }}</a> or by <a href="mailto:{{ site.email }}">email</a>.</h3>
-	  {% include social.html %}
+          <table>
+              <tbody>
+                  <tr><div class="teaser">
+	              <h3><a href="{{ site.baseurl }}compression.html"> Model Compression </a></h3>
+                      <img src="{{ site.baseurl }}static/img/{{ site.model_compression_image }}" height=200>
+                      <hr>
+                  </div> </tr>
+                  <tr><div class="teaser">
+	              <h3><a href="{{ site.baseurl }}tracking.html"> Tracking </a></h3>
+                      <img src="{{ site.baseurl }}static/img/{{ site.tracking_image}}" height=200>
+                      <hr>
+                  </div> </tr>
+              </tbody>
+          </table>
 	</div>
 </section>
